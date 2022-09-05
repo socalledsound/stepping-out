@@ -1,0 +1,69 @@
+.master-slider{
+    width: 240px;
+
+}
+
+.sound-slider{
+    width: 100px;
+}
+.not-reversed{
+	background-color: #81b5cc;
+	padding: 0.6rem;
+	border-radius: 0.6rem;
+	border: none;
+	box-shadow: 3px 3px 5px #6c6d70;
+}
+
+.reversed{
+	background-color: red;
+	padding: 0.6rem;
+	border-radius: 0.6rem;
+	border: none;
+	box-shadow: 3px 3px 5px #6c6d70;
+}
+
+.ball-button {
+	background-color: rgb(137, 191, 191);
+	padding: 0.6rem;
+	border-radius: 0.6rem;
+	border: none;
+	box-shadow: 3px 3px 5px #6c6d70;
+}
+
+.transport-button{
+	background-color: rgb(112, 139, 172);
+	padding: 0.6rem;
+	border-radius: 0.6rem;
+	border: none;
+	box-shadow: 3px 3px 5px #6c6d70;
+}
+
+button:hover {
+	background-color: beige;
+}
+
+button:active {
+	background-color: rebeccapurple;
+}
+
+
+input[type=range] {
+	-webkit-appearance: none;
+	display: block;
+	height: 20px;
+	padding: 0;
+	border-radius: 4px;
+	background: #6c6d70;
+	box-sizing: content-box;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #81b5cc;
+	border-radius: 25px;
+	background: #81b5cc;
+}
