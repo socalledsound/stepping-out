@@ -50,5 +50,17 @@ class Controls {
     render(){
         fill(this.bgCol)
         rect(this.x, this.y, this.w, this.h)
+        textSize(20)
+        fill(0)
+        noStroke()
+        text('playback speed', 50, 25)
+        text('step memory', 50, 80)
+        text('ball speed', 50, 130)
+
+        // render text for sound controls
+        this.sound.forEach(control => {
+            control.renderText()
+        })
+        
     }
 }
