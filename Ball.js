@@ -2,7 +2,7 @@ class Ball {
     constructor(){
         this.fillColor = ballFillColor 
         this.strokeColor = ballStrokeColor
-        this.r = 40
+        this.r = 30
         this.position = createVector(110, 600)
         this.velocity = createVector(0,0)
         this.ballSpeed = 1.01

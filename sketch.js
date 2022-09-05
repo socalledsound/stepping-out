@@ -85,9 +85,12 @@ function draw(){
                 paddle.move(vec)
                     paddle.hit(vec)
             } else if(keyCode === DOWN_ARROW){
-                let vec = createVector(0,10)
-                paddle.move(vec)
-                paddle.hit(vec)
+                if(paddle.position.y + paddle.h < height){
+                    let vec = createVector(0,10)
+                    paddle.move(vec)
+                    paddle.hit(vec)
+                }
+
             }
         }
 
