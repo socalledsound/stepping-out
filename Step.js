@@ -1,9 +1,4 @@
-const stepWidth = canvasWidth/(numSteps*1.35)
-const stepHeight = canvasHeight/ (numSounds * 5)
-const paddingWide = (1/ numSteps) * 150
-const paddingHigh = 10
-const paddingLeft = 20
-const paddingTop = controlsHeight + 10
+
 
 class Step {
     constructor(id, snd, x, y){

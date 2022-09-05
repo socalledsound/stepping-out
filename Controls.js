@@ -20,22 +20,41 @@ class Controls {
 
         // buttons
         this.startPlay = createButton('start play')
-        this.startPlay.position(this.w/14, this.h/1.5)
+        this.startPlay.position(this.w/17, this.h/1.5)
         this.startPlay.mousePressed(loop)
         this.startPlay.class('transport-button')
         this.stopPlay = createButton('stop play')
-        this.stopPlay.position(this.w/5, this.h/1.5)
+        this.stopPlay.position(this.w/6, this.h/1.5)
         this.stopPlay.mousePressed(noLoop)
         this.stopPlay.class('transport-button')
         this.stopBall = createButton('start ball')
-        this.stopBall.position(this.w/14, this.h/1.15)
+        this.stopBall.position(this.w/17, this.h/1.15)
         this.stopBall.mousePressed(() => ball.velocity = createVector(10.0,20.0))
         this.stopBall.class('ball-button')
         this.restartBall = createButton('stop ball')
-        this.restartBall.position(this.w/5, this.h/1.15)
+        this.restartBall.position(this.w/6, this.h/1.15)
         this.restartBall.mousePressed(() => ball.velocity = createVector(0.0,0.0))
         this.restartBall.class('ball-button')
- 
+
+        this.fourSteps = createButton('4')
+        this.fourSteps.position(this.w/3.4, this.h/1.4)
+        this.fourSteps.mousePressed(() => resetGrid(4))
+        this.fourSteps.class('steps-button')
+
+        this.eightSteps = createButton('8')
+        this.eightSteps.position(this.w/2.9, this.h/1.4)
+        this.eightSteps.mousePressed(() => resetGrid(8))
+        this.eightSteps.class('steps-button')
+
+        this.sixteenSteps = createButton('16')
+        this.sixteenSteps.position(this.w/3.4, this.h/1.15)
+        this.sixteenSteps.mousePressed(() => resetGrid(16))
+        this.sixteenSteps.class('steps-button')
+
+        this.thirtytwoSteps = createButton('32')
+        this.thirtytwoSteps.position(this.w/2.9, this.h/1.15)
+        this.thirtytwoSteps.mousePressed(() => resetGrid(32))
+        this.thirtytwoSteps.class('steps-button')
    
         this.sound = this.initSoundControls(this.x, this.y, this.w, this.h)
     }

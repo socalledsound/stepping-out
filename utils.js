@@ -14,11 +14,11 @@ function circleRectCollision(cx, cy, radius, rx, ry, rw, rh) {
   
     // get distance from closest edges
     let distX = cx-testX;
-    console.log(distX)
+    // console.log(distX)
     let distY = cy-testY;
-    console.log(distY)
+    // console.log(distY)
     let distance = sqrt( (distX*distX) + (distY*distY) );
-      console.log(distance)
+    //   console.log(distance)
     // if the distance is less than the radius, collision!
     if (distance <= radius) {
       return true;

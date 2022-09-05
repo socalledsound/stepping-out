@@ -67,6 +67,22 @@ function draw(){
     }
 }
 
+function resetGrid(num){
+    let counter = 0
+    numSteps = num
+    stepWidth = canvasWidth/(numSteps*1.35)
+    stepHeight = canvasHeight/ (numSounds * 5)
+    paddingWide = (1/ numSteps) * 150
+    background(190, 190, 190)
+    steps = []
+    for(let x = 0; x < numSteps; x++){
+        for(let y = 0; y < numSounds; y++){
+            steps.push(new Step(counter, snds[y], x, y))
+            counter++  
+        }
+    }
+}
+
 function mousePressed(){
     steps.forEach(step => {
         step.checkClick(mouseX, mouseY)
