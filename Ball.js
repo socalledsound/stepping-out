@@ -1,12 +1,24 @@
 class Ball {
     constructor(){
-        this.color = [90,200,120]
+        this.fillColor = ballFillColor 
+        this.strokeColor = ballStrokeColor
         this.r = 40
         this.position = createVector(110, 600)
         this.velocity = createVector(0,0)
         this.ballSpeed = 1.01
         this.maxSpeed = 50.0
+        this.dragged = false
        
+    }
+
+    checkMouse(mX, mY){
+        if(dist(mX, mY, this.position.x, this.position.y) < this.r){
+            this.position.x = mX
+            this.position.y = mY
+            this.velocity.mult(createVector(0,0))
+            this.dragged = true
+            this.dragStart = createVector(mX, mY)
+        }
     }
 
     checkPaddleCollision(){
@@ -17,12 +29,15 @@ class Ball {
 
     checkStepCollision(){
         steps.forEach(step => {
-            if(circleRectCollision(this.position.x, this.position.y, this.r, step.x, step.y, step.w, step.h)){
-                step.clicked = true
-                //this.velocity.mult(createVector(-1,-1))
-                this.velocity.y *= -1
+            if(!step.clicked){
+                if(circleRectCollision(this.position.x, this.position.y, this.r, step.x, step.y, step.w, step.h)){
+                    step.clicked = true
+                    //this.velocity.mult(createVector(-1,-1))
+                    this.velocity.y *= -1
+                }
             }
         })
+
 
     }
 
@@ -55,6 +70,16 @@ class Ball {
         }
     }
 
+    fling(mX, mY){
+        console.log('flung')
+        const mousePos = createVector(mX, mY)
+        const dist = p5.Vector.sub(mousePos, this.dragStart)
+        // const distMag = dist.mag()
+        const theta = dist.heading()
+        // console.log(distMag)
+        this.velocity.x = cos(theta) * dist.x - sin(theta) * dist.y
+        this.velocity.y = cos(theta) * dist.y + sin(theta) * dist.x
+    }
    
     move(){
         this.maxSpeed = controls.maxSpeed.value()
@@ -65,8 +90,8 @@ class Ball {
 
 
     render(){
-        noStroke()
-        fill(this.color)
+        stroke(this.strokeColor)
+        fill(this.fillColor)
         ellipse(this.position.x, this.position.y, this.r * 2)
     }
 
