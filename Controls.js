@@ -5,13 +5,15 @@ class Controls {
         this.w = width
         this.h = controlsHeight
         this.bgCol = [190,180,189]
+        // loop speed/bpm
         this.bpm = createSlider(1, 60, 20)
         this.bpm.position(this.w/20, this.h/6)
         this.bpm.class('master-slider')
+        // how quickly do the selections disappear
         this.randomReset = createSlider(9000,9999,9900)
         this.randomReset.position(this.w/20, this.h/3)
         this.randomReset.class('master-slider')
-        // ball speed
+        // maximum ball speed
         this.maxSpeed = createSlider(1,50,25)
         this.maxSpeed.position(this.w/20, this.h/1.9)
         this.maxSpeed.class('master-slider')
