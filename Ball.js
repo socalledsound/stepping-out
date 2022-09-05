@@ -73,12 +73,9 @@ class Ball {
     fling(mX, mY){
         console.log('flung')
         const mousePos = createVector(mX, mY)
-        const dist = p5.Vector.sub(mousePos, this.dragStart)
-        // const distMag = dist.mag()
-        const theta = dist.heading()
-        // console.log(distMag)
-        this.velocity.x = cos(theta) * dist.x - sin(theta) * dist.y
-        this.velocity.y = cos(theta) * dist.y + sin(theta) * dist.x
+        const force = calculateDragVelocity(this.dragStart, mousePos)
+        this.velocity.sub(force)
+        
     }
    
     move(){

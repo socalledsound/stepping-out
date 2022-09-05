@@ -25,3 +25,13 @@ function circleRectCollision(cx, cy, radius, rx, ry, rw, rh) {
     }
     return false;
   }
+
+  function calculateDragVelocity(dragStart, releasePos){
+    const dist = p5.Vector.sub(releasePos, this.dragStart)
+    // const distMag = dist.mag()
+    const theta = dist.heading()
+    // console.log(distMag)
+    velX = cos(theta) * dist.x - sin(theta) * dist.y
+    velY = cos(theta) * dist.y + sin(theta) * dist.x
+    return createVector(velX, velY)
+  }
