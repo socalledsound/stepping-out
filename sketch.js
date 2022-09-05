@@ -24,6 +24,7 @@ let steps = []
 let stepCounter = 0
 let stepUpdate = 0
 
+let modal
 let controls
 let ball, paddle
 let paused = false
@@ -44,9 +45,10 @@ function setup(){
     frameRate(fr)
     background(190, 190, 190)
     controls = new Controls()
-    drawModal()
+    modal = new IntroModal()
+    modal.render()
     startGameButton = createButton('ok')
-    startGameButton.position(width/2 - 100, 600)
+    startGameButton.position(width/2 - 100, 650)
     startGameButton.class('start-game-button')
     startGameButton.mousePressed(initGame)
 }
@@ -111,22 +113,7 @@ function draw(){
 
 }
 
-function drawModal(){
-    fill(220, 220, 200, 120)
-    stroke(20, 20, 20,20)
-    rect(40, controlsHeight + 40, width-80, height - (controlsHeight + 60))
-    fill(20, 20, 20)
-    textSize(18)
-    noStroke()
-    text('Think of this as the love child of a step sequencer and the classic game breakout.', 60, controlsHeight + 80 )
-    text('You can start/stop/control the speed of the playhead with the controls above.', 60, controlsHeight + 110 )
-    text('Step memory controls how long a step stays lit before resetting.', 60, controlsHeight + 140 )
-    text('The controls on right side control the sound attached to each row.', 60, controlsHeight + 170 )
-    text('You can select one of four sound palettes for each bank with the numbered buttons.', 60, controlsHeight + 200 )
-    text('You drag the ball or bounce it with the paddle.', 60, controlsHeight + 230 )
-    text('Move the paddle with the arrow keys.', 60, controlsHeight + 260 )
-    text('Blocks cleared by the ball become triggers for sounds.', 60, controlsHeight + 290 )
-}
+
 
 function initGame(){
     if(startGameButton){
