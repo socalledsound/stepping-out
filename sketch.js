@@ -158,6 +158,9 @@ function resetGrid(num){
             counter++  
         }
     }
+    controls.sound.forEach(sound => {
+        sound.resetBank()
+    })
 }
 
 function mousePressed(){

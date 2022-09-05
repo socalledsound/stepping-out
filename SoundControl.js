@@ -69,6 +69,16 @@ class SoundControl {
         })
     }
 
+    resetBank(){
+        this.bankButtons.forEach((button,idx) => {
+            if(idx === 0){
+                button.class('selected-sb')
+            }else {
+                button.class('sound-bank-toggle')
+            }
+        })
+    }
+
     reverseGroup = (idx) => {
         steps.forEach(step => {
             if(step.soundGroup == idx){
