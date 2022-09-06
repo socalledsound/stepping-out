@@ -14,7 +14,7 @@ class Controls {
         this.randomReset.position(this.w/30, this.h/3)
         this.randomReset.class('master-slider')
         // maximum ball speed
-        this.maxSpeed = createSlider(1,50,25)
+        this.maxSpeed = createSlider(0,50,25)
         this.maxSpeed.position(this.w/30, this.h/1.9)
         this.maxSpeed.class('master-slider')
 
